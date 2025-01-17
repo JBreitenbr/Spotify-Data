@@ -2,8 +2,9 @@ import pandas as pd
 df1=pd.read_csv("spotiDaten2.csv")
 df2=pd.read_csv("spieli2.csv")
 bij=pd.read_csv("bij.csv")
-#def wrangle(df1,df2,bij):df2=pd.merge(df2,bij,on=["artist"],how="inner")
-del df2["artist_id"]
+#def wrangle(df1,df2,bij):
+df2=pd.merge(df2,bij,on=["artist"],how="inner")
+#del df2["artist_id"]
 del df2["album_id"]
 del df2["track_id"]
 df=pd.concat([df1,df2])
