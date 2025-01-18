@@ -1,7 +1,7 @@
 import pandas as pd
 df=pd.read_csv("bij.csv")
 artists=df["artist"].unique().tolist()
-char_tup=(("ü","ue"),(".",""),("'",""),("&","and"),(",",""),("ö","oe"),("ë","e"),("á","a"),("é","e"),("í","i"),("ó","o"),("13","t"),("35007","loose"),("-",""))
+char_tup=(("ü","ue"),(".",""),("'",""),("&","and"),(",",""),("ö","oe"),("ë","e"),("á","a"),("é","e"),("í","i"),("ó","o"),("13","t"),("35007","loose"),("-","_"))
 artDict={}
 
 for i in range(len(artists)):
@@ -16,4 +16,10 @@ artDict_rev={}
 for k,v in artDict.items():
   artDict_rev[v]=k
 import json
-print(json.dumps(artDict_rev))
+#print(json.dumps(artDict_rev))
+artLst=[]
+for v in artDict.values():
+  artLst.append(v)
+namesDict={}
+namesDict["artists"]=artLst
+print(json.dumps(namesDict))

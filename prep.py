@@ -4,9 +4,12 @@
 #wrangle.wrangle(wrangle.df1,wrangle.df2,wrangle.bij)
 import pandas as pd
 s=pd.read_csv("spotiDaten3.csv")
+del s["artist_id_x"]
+del s["artist_id_y"]
 #print(s.columns)
 #print(s.iloc[987])
 s["alphaname"]=s["alphaname"].astype(str)
+s["artist" ]=s["artist"].astype(str).replace(" ","_")
 #print(type(s.loc[987,"alphaname"]))
 
 for i in range(len(s)):
