@@ -1,5 +1,5 @@
 import pandas as pd 
-df0=pd.read_csv('spotiData_22Jun2025.csv')
+df0=pd.read_csv('spotiData_25Jun2025.csv')
 cnt=df0["artist"].value_counts()
 df=pd.merge(df0,cnt,on="artist")
 print(len(df))
